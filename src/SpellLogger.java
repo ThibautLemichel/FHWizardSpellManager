@@ -1,5 +1,5 @@
-public class SpellLogger implements SpellObserver{
-    public void onSpellAdded(Spell spell) {
-        System.out.println("Spell added: " + spell.getClass().getSimpleName());
+public class SpellLogger implements SpellStatusObserver {
+    public void onSpellStatusChange(Spell spell, String status) {
+        System.out.println("Spell status changed: " + spell.getClass().getSimpleName() + " : " + status);
     }
 }
