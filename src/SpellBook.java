@@ -27,6 +27,19 @@ public class SpellBook {
         }
     }
 
+    public Spell getSpell(String spellType) {
+        for (Spell spell : spells) {
+            if (spell.getClass().getSimpleName().equalsIgnoreCase(spellType)) {
+                return spell;
+            }
+        }
+        return null;
+    }
+
+    public List<Spell> getSpells() {
+        return spells;
+    }
+
     public void addObserver(SpellStatusObserver observer) {
         observers.add(observer);
     }
