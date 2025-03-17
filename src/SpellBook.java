@@ -4,7 +4,7 @@ import java.util.List;
 public class SpellBook {
     private static SpellBook instance;
     private List<Spell> spells = new ArrayList<>();
-    private List<SpellObserver> observers = new ArrayList<>();
+    private List<SpellStatusObserver> observers = new ArrayList<>();
 
     private SpellBook() {}
 
@@ -17,22 +17,23 @@ public class SpellBook {
 
     public void addSpell(Spell spell) {
         spells.add(spell);
-        notifyObservers(spell);
+        notifyObservers(spell, "added");
     }
 
     public void castAllSpells() {
         for (Spell spell : spells) {
             spell.cast();
+            notifyObservers(spell, "cast");
         }
     }
 
-    public void addObserver(SpellObserver observer) {
+    public void addObserver(SpellStatusObserver observer) {
         observers.add(observer);
     }
 
-    private void notifyObservers(Spell spell) {
-        for (SpellObserver observer : observers) {
-            observer.onSpellAdded(spell);
+    private void notifyObservers(Spell spell, String status) {
+        for (SpellStatusObserver observer : observers) {
+            observer.onSpellStatusChange(spell, status);
         }
     }
 }

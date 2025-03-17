@@ -12,5 +12,7 @@ public class CastSpellCommand implements Command {
 
     public void undo() {
         System.out.println("Undoing spell... ("+ spell.getClass().getSimpleName()+ ")");
+        spell.setState(new ChargedState());
+        System.out.println("Spell is now inactive!");
     }
 }

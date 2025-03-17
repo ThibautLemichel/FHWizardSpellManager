@@ -14,4 +14,10 @@ public class Wizard {
             commandHistory.remove(commandHistory.size() - 1).undo();
         }
     }
+
+    public void undoAllSpell() {
+        for (int i = commandHistory.size() - 1; i >= 0; i--) {
+            commandHistory.get(i).undo();
+        }
+    }
 }
