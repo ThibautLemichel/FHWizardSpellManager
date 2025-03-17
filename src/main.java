@@ -62,7 +62,6 @@ public class main {
                 default:
                     System.out.println("Invalid choice. Please try again.");
             }
-            return;
         }
     }
 }
