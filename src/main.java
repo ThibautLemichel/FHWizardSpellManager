@@ -30,7 +30,15 @@ public class main {
                     System.out.println(spellType + " spell added.");
                     break;
                 case 2:
-                    System.out.println("Enter spell type to cast (FireBall/Necromancer):");
+                    if(spellBook.getSpells().isEmpty()) {
+                        System.out.println("No spells available.");
+                        break;
+                    }
+                    System.out.println("Available spells:");
+                    for (Spell s : spellBook.getSpells()) {
+                        System.out.println(s.getClass().getSimpleName());
+                    }
+                    System.out.println("Enter spell type to cast (FireBallSpell/NecromancerSpell):");
                     String castSpellType = scanner.nextLine();
                     Spell castSpell = spellBook.getSpell(castSpellType);
                     if (castSpell != null) {

@@ -3,6 +3,9 @@ public class NecromancerSpell extends BaseSpell {
         super(10000);
     }
 
+    /**
+     * Activates the spell
+     */
     public void activate() {
         System.out.println("Necromancer spell is active indefinitely until undone.");
         setState(new RecoveryState(recoveryTime));

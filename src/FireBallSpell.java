@@ -6,11 +6,17 @@ public class FireBallSpell extends BaseSpell implements TimedSpell{
         super(5000);
     }
 
+    /**
+     * Activates the spell
+     */
     public void activate() {
         System.out.println("Fire spell is active for 5 seconds...");
         startTimer();
     }
 
+    /**
+     * Starts the timer for the spell
+     */
     public void startTimer() {
         Timer timer = new Timer();
         timer.schedule(new TimerTask() {
