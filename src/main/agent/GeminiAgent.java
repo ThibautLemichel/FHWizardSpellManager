@@ -1,4 +1,4 @@
-package main;
+package main.agent;
 
 import java.net.URI;
 import java.net.http.HttpClient;

@@ -1,4 +1,10 @@
-package main;
+package main.orchestrator;
+
+import main.agent.GeminiAgent;
+import main.agent.LLMAgent;
+import main.agent.SpellDescriptionAgent;
+import main.agent.SpellSuggestionAgent;
+import main.proxy.LLMProxy;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -8,9 +14,9 @@ public class DefaultPromptOrchestrator  implements PromptOrchestrator {
 
     public DefaultPromptOrchestrator() {
         // Register agents
-        agents.put("description", new SpellDescriptionAgent());
-        agents.put("suggestion", new SpellSuggestionAgent());
-        agents.put("gemini", new GeminiAgent());
+        agents.put("description", new LLMProxy(new SpellDescriptionAgent()));
+        agents.put("suggestion", new LLMProxy(new SpellSuggestionAgent()));
+        agents.put("gemini", new LLMProxy(new GeminiAgent()));
     }
 
     @Override

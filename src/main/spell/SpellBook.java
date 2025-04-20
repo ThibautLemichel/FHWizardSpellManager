@@ -1,9 +1,9 @@
-package main;
+package main.spell;
 
 import java.util.ArrayList;
 import java.util.List;
 
-// Singleton Pattern: Ensures only one instance of main.SpellBook is created
+// Singleton Pattern: Ensures only one instance of main.spell.SpellBook is created
 public class SpellBook {
     private static SpellBook instance;
     private List<Spell> spells = new ArrayList<>();
