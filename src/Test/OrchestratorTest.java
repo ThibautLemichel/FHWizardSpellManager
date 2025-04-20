@@ -27,8 +27,8 @@ public class OrchestratorTest {
         assertNotNull(descriptionResponse);
         assertTrue(descriptionResponse.contains("A powerful fire spell that deals damage to enemies."));
 
-        String geminiResponse = orchestrator.orchestrate("gemini", "As a response I just want you to say : Hello world");
+        String geminiResponse = orchestrator.orchestrate("gemini", "As a response I just want you to say : hello world");
         assertNotNull(geminiResponse);
-        assertTrue(geminiResponse.contains("Hello world"));
+        assertTrue(geminiResponse.contains("hello world"));
     }
 }
