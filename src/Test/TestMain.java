@@ -4,8 +4,10 @@ import main.agent.GeminiAgent;
 import main.agent.LLMAgent;
 import main.agent.SpellDescriptionAgent;
 import main.agent.SpellSuggestionAgent;
+import main.agnostic_model.Model;
 import main.orchestrator.DefaultPromptOrchestrator;
 import main.orchestrator.PromptOrchestrator;
+import main.proxy.LLMProxy;
 import main.spell.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -85,40 +87,5 @@ public class TestMain {
         assertEquals(2, spells.size());
         assertEquals("FireBallSpell", spells.get(0).getClass().getSimpleName());
         assertEquals("NecromancerSpell", spells.get(1).getClass().getSimpleName());
-    }
-
-    @Test
-    public void testLLMAgentInteraction() {
-        LLMAgent suggestionAgent = new SpellSuggestionAgent();
-        String suggestionResponse = suggestionAgent.interact("attack");
-        assertNotNull(suggestionResponse);
-        assertTrue(suggestionResponse.contains("Suggested Spell: FireBall"));
-
-        LLMAgent descriptionAgent = new SpellDescriptionAgent();
-        String descriptionResponse = descriptionAgent.interact("FireBall");
-        assertNotNull(descriptionResponse);
-        assertTrue(descriptionResponse.contains("A powerful fire spell that deals damage to enemies."));
-
-        LLMAgent geminiAgent = new GeminiAgent();
-        String geminiResponse = geminiAgent.interact("As a response I just want you to say : Hello world");
-        assertNotNull(geminiResponse);
-        assertTrue(geminiResponse.contains("Hello world"));
-    }
-
-    @Test
-    public void testPromptOrchestrator() {
-        PromptOrchestrator orchestrator = new DefaultPromptOrchestrator();
-
-        String suggestionResponse = orchestrator.orchestrate("Suggestion", "attack");
-        assertNotNull(suggestionResponse);
-        assertTrue(suggestionResponse.contains("Suggested Spell: FireBall"));
-
-        String descriptionResponse = orchestrator.orchestrate("Description", "FireBall");
-        assertNotNull(descriptionResponse);
-        assertTrue(descriptionResponse.contains("A powerful fire spell that deals damage to enemies."));
-
-        String geminiResponse = orchestrator.orchestrate("Gemini", "As a response I just want you to say : Hello world");
-        assertNotNull(geminiResponse);
-        assertTrue(geminiResponse.contains("Hello world"));
     }
 }

@@ -1,7 +1,9 @@
 package main.agent;
 
-public class SpellSuggestionAgent implements LLMAgent{
-    public static final String AGENT_NAME = "DumpSuggestionAgent";
+import main.agnostic_model.Model;
+
+public class SpellSuggestionAgent implements Model {
+    public static final String AGENT_NAME = "suggestion";
 
     @Override
     public String interact(String input) {
@@ -16,7 +18,7 @@ public class SpellSuggestionAgent implements LLMAgent{
     }
 
     @Override
-    public String getAgentName() {
+    public String getName() {
         return AGENT_NAME;
     }
 }

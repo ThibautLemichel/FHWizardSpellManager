@@ -1,5 +1,7 @@
 package main.agent;
 
+import main.agnostic_model.Model;
+
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -8,15 +10,15 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class GeminiAgent implements LLMAgent {
-    private static final String AGENT_NAME = "Gemini";
+public class GeminiAgent implements Model {
+    private static final String AGENT_NAME = "gemini";
 
     private static final String API_KEY = loadApiKey();
 
     private static final String API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=" + API_KEY;
 
     @Override
-    public String getAgentName() {
+    public String getName() {
         return AGENT_NAME;
     }
 
