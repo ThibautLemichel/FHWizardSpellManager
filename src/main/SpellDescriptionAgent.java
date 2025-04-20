@@ -1,3 +1,5 @@
+package main;
+
 public class SpellDescriptionAgent implements LLMAgent{
     private static final String AGENT_NAME = "DumpDescriptionAgent";
 

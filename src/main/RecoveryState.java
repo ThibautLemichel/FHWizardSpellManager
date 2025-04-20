@@ -1,3 +1,5 @@
+package main;
+
 public class RecoveryState implements SpellState {
     private int recoveryTime;
 

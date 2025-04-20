@@ -1,3 +1,5 @@
+package main;
+
 public class ChargedState implements SpellState {
     /**
      * Casts the spell

@@ -1,9 +1,11 @@
+package main;
+
 public class CastSpellCommand implements Command {
 
     private Spell spell;
 
     /**
-     * Constructor for CastSpellCommand
+     * Constructor for main.CastSpellCommand
      * @param spell
      */
     public CastSpellCommand(Spell spell) {
@@ -23,6 +25,6 @@ public class CastSpellCommand implements Command {
     public void undo() {
         System.out.println("Undoing spell... ("+ spell.getClass().getSimpleName()+ ")");
         spell.setState(new ChargedState());
-        System.out.println("Spell is now inactive!");
+        System.out.println("main.Spell is now inactive!");
     }
 }

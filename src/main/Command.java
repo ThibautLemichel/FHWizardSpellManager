@@ -1,3 +1,5 @@
+package main;
+
 public interface Command {
     /**
      * Executes the command
