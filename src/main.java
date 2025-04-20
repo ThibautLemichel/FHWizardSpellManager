@@ -9,6 +9,11 @@ public class main {
         SpellLogger logger = new SpellLogger();
         spellBook.addObserver(logger);
 
+        String agentType;
+        LLMAgent agent;
+        String context;
+        String spellName;
+
         while (true) {
             System.out.println("\nChoose an action:");
             System.out.println("1. Add Spell");
@@ -17,6 +22,7 @@ public class main {
             System.out.println("4. Undo All Spells");
             System.out.println("5. List Spells");
             System.out.println("6. Exit");
+            System.out.println("7. Interact with LLM Agent");
 
             int choice = scanner.nextInt();
             scanner.nextLine();
@@ -67,6 +73,28 @@ public class main {
                     System.out.println("Exiting...");
                     scanner.close();
                     return;
+                case 7:
+                    System.out.println("Choose LLM Agent (Suggestion/Description/Gemini):");
+                    agentType = scanner.nextLine();
+                    if ("Suggestion".equalsIgnoreCase(agentType)) {
+                        System.out.println("Enter context (e.g., attack, defense):");
+                        context = scanner.nextLine();
+                        agent = new GeminiAgent(); // Use GeminiAgent for Suggestion
+                        System.out.println(agent.interact(context));
+                    } else if ("Description".equalsIgnoreCase(agentType)) {
+                        System.out.println("Enter spell name (e.g., FireBall, Necromancer):");
+                        spellName = scanner.nextLine();
+                        agent = new GeminiAgent(); // Use GeminiAgent for Description
+                        System.out.println(agent.interact(spellName));
+                    } else if ("Gemini".equalsIgnoreCase(agentType)) {
+                        agent = new GeminiAgent();
+                        System.out.println("Enter input for Gemini:");
+                        String geminiInput = scanner.nextLine();
+                        System.out.println(agent.interact(geminiInput));
+                    } else {
+                        System.out.println("Invalid agent type.");
+                    }
+                    break;
                 default:
                     System.out.println("Invalid choice. Please try again.");
             }
