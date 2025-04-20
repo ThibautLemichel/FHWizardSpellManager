@@ -4,6 +4,7 @@ import main.agent.GeminiAgent;
 import main.agent.LLMAgent;
 import main.agent.SpellDescriptionAgent;
 import main.agent.SpellSuggestionAgent;
+import main.agnostic_model.Model;
 import main.orchestrator.DefaultPromptOrchestrator;
 import main.orchestrator.PromptOrchestrator;
 import main.spell.*;
@@ -20,7 +21,7 @@ public class main {
         spellBook.addObserver(logger);
 
         String agentType;
-        LLMAgent agent;
+        Model agent;
         String context;
         String spellName;
 
