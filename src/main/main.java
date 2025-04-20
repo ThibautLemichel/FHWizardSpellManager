@@ -7,6 +7,7 @@ import main.agent.SpellSuggestionAgent;
 import main.agnostic_model.Model;
 import main.orchestrator.DefaultPromptOrchestrator;
 import main.orchestrator.PromptOrchestrator;
+import main.proxy.LLMProxy;
 import main.spell.*;
 
 import java.util.Scanner;
@@ -25,7 +26,10 @@ public class main {
         String context;
         String spellName;
 
-        PromptOrchestrator orchestrator = new DefaultPromptOrchestrator();
+        DefaultPromptOrchestrator orchestrator = new DefaultPromptOrchestrator();
+        orchestrator.registerModel(new LLMProxy(new SpellSuggestionAgent()));
+        orchestrator.registerModel(new LLMProxy(new SpellDescriptionAgent()));
+        orchestrator.registerModel(new LLMProxy(new GeminiAgent()));
 
         while (true) {
             System.out.println("\nChoose an action:");
