@@ -1,5 +1,13 @@
 package main;
 
+import main.agent.GeminiAgent;
+import main.agent.LLMAgent;
+import main.agent.SpellDescriptionAgent;
+import main.agent.SpellSuggestionAgent;
+import main.orchestrator.DefaultPromptOrchestrator;
+import main.orchestrator.PromptOrchestrator;
+import main.spell.*;
+
 import java.util.Scanner;
 
 public class main {
@@ -20,9 +28,9 @@ public class main {
 
         while (true) {
             System.out.println("\nChoose an action:");
-            System.out.println("1. Add main.Spell");
-            System.out.println("2. Cast main.Spell");
-            System.out.println("3. Undo Last main.Spell");
+            System.out.println("1. Add main.spell.Spell");
+            System.out.println("2. Cast main.spell.Spell");
+            System.out.println("3. Undo Last main.spell.Spell");
             System.out.println("4. Undo All Spells");
             System.out.println("5. List Spells");
             System.out.println("6. Exit");

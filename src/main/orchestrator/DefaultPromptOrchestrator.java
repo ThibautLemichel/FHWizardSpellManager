@@ -1,4 +1,9 @@
-package main;
+package main.orchestrator;
+
+import main.agent.GeminiAgent;
+import main.agent.LLMAgent;
+import main.agent.SpellDescriptionAgent;
+import main.agent.SpellSuggestionAgent;
 
 import java.util.HashMap;
 import java.util.Map;

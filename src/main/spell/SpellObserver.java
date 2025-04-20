@@ -1,6 +1,6 @@
-package main;
+package main.spell;
 
-// Purpose: Interface for observers of the main.Spell class.
+// Purpose: Interface for observers of the main.spell.Spell class.
 public interface SpellObserver {
 
     /**

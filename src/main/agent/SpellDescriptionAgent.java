@@ -1,4 +1,4 @@
-package main;
+package main.agent;
 
 public class SpellDescriptionAgent implements LLMAgent{
     private static final String AGENT_NAME = "DumpDescriptionAgent";

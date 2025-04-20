@@ -1,4 +1,4 @@
-package main;
+package main.spell;
 
 public class NecromancerSpell extends BaseSpell {
     public NecromancerSpell() {

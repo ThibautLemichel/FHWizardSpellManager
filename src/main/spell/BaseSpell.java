@@ -1,4 +1,4 @@
-package main;
+package main.spell;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +10,7 @@ abstract class BaseSpell implements Spell {
     private List<SpellStatusObserver> observers = new ArrayList<>();
 
     /**
-     * Constructor for main.BaseSpell
+     * Constructor for main.spell.BaseSpell
      * @param recoveryTime
      */
     public BaseSpell(int recoveryTime) {

@@ -1,6 +1,12 @@
 package Test;
-import main.*;
 
+import main.agent.GeminiAgent;
+import main.agent.LLMAgent;
+import main.agent.SpellDescriptionAgent;
+import main.agent.SpellSuggestionAgent;
+import main.orchestrator.DefaultPromptOrchestrator;
+import main.orchestrator.PromptOrchestrator;
+import main.spell.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
