@@ -1,3 +1,5 @@
+package main;
+
 public interface Spell {
     void cast();
     void setState(SpellState state);

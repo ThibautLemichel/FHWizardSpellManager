@@ -1,3 +1,5 @@
+package main;
+
 public class NecromancerSpell extends BaseSpell {
     public NecromancerSpell() {
         super(10000);

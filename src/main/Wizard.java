@@ -1,3 +1,5 @@
+package main;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,5 +31,10 @@ public class Wizard {
         for (int i = commandHistory.size() - 1; i >= 0; i--) {
             commandHistory.get(i).undo();
         }
+        commandHistory.clear();
+    }
+
+    public List<Command> getSpellHistory() {
+        return commandHistory;
     }
 }

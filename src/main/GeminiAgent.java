@@ -1,3 +1,5 @@
+package main;
+
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -47,10 +49,9 @@ public class GeminiAgent implements LLMAgent {
     }
 
     /**
-     * Méthode utilitaire pour échapper les guillemets dans les chaînes JSON.
-     *
-     * @param input Le texte à échapper.
-     * @return Le texte échappé.
+     * Escapes JSON special characters in the input string.
+     * @param input the input string to escape
+     * @return
      */
     private String escapeJson(String input) {
         if (input == null) {

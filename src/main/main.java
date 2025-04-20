@@ -1,3 +1,5 @@
+package main;
+
 import java.util.Scanner;
 
 public class main {
@@ -14,15 +16,18 @@ public class main {
         String context;
         String spellName;
 
+        PromptOrchestrator orchestrator = new DefaultPromptOrchestrator();
+
         while (true) {
             System.out.println("\nChoose an action:");
-            System.out.println("1. Add Spell");
-            System.out.println("2. Cast Spell");
-            System.out.println("3. Undo Last Spell");
+            System.out.println("1. Add main.Spell");
+            System.out.println("2. Cast main.Spell");
+            System.out.println("3. Undo Last main.Spell");
             System.out.println("4. Undo All Spells");
             System.out.println("5. List Spells");
             System.out.println("6. Exit");
             System.out.println("7. Interact with LLM Agent");
+            System.out.println("8. Prompt Orchestrator");
 
             int choice = scanner.nextInt();
             scanner.nextLine();
@@ -44,7 +49,7 @@ public class main {
                     for (Spell s : spellBook.getSpells()) {
                         System.out.println(s.getClass().getSimpleName());
                     }
-                    System.out.println("Enter spell type to cast (FireBallSpell/NecromancerSpell):");
+                    System.out.println("Enter spell type to cast (FireBallSpellNecromancerSpell):");
                     String castSpellType = scanner.nextLine();
                     Spell castSpell = spellBook.getSpell(castSpellType);
                     if (castSpell != null) {
@@ -79,12 +84,12 @@ public class main {
                     if ("Suggestion".equalsIgnoreCase(agentType)) {
                         System.out.println("Enter context (e.g., attack, defense):");
                         context = scanner.nextLine();
-                        agent = new GeminiAgent(); // Use GeminiAgent for Suggestion
+                        agent = new SpellSuggestionAgent();
                         System.out.println(agent.interact(context));
                     } else if ("Description".equalsIgnoreCase(agentType)) {
                         System.out.println("Enter spell name (e.g., FireBall, Necromancer):");
                         spellName = scanner.nextLine();
-                        agent = new GeminiAgent(); // Use GeminiAgent for Description
+                        agent = new SpellDescriptionAgent();
                         System.out.println(agent.interact(spellName));
                     } else if ("Gemini".equalsIgnoreCase(agentType)) {
                         agent = new GeminiAgent();
@@ -95,6 +100,15 @@ public class main {
                         System.out.println("Invalid agent type.");
                     }
                     break;
+                case 8:
+                    System.out.println("\nPrompt Ochestrator: Suggestion/Description/Gemini");
+                    agentType = scanner.nextLine();
+
+                    System.out.println("Enter input for the agent:");
+                    String input = scanner.nextLine();
+
+                    String response = orchestrator.orchestrate(agentType, input);
+                    System.out.println("Agent Response: " + response);
                 default:
                     System.out.println("Invalid choice. Please try again.");
             }

@@ -1,3 +1,5 @@
+package main;
+
 interface SpellStatusObserver {
     /**
      * Called when the status of a spell changes

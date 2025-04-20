@@ -1,4 +1,6 @@
-// Factory Pattern: Creates Spell objects based on input
+package main;
+
+// Factory Pattern: Creates main.Spell objects based on input
 public class SpellFactory {
     public static Spell createSpell(String spellType) {
         switch (spellType) {
